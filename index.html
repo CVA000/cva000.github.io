@@ -3,32 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chloe Villa-Abrille — Communication Sciences & Interactive Tools</title>
+  <title>[Your Name] — Communication Sciences & Interactive Tools</title>
   <meta name="description" content="Graduate SLP leveling student building interactive tools at the intersection of speech science, education, and design.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
-      --light:           #F6F5F1;
-      --dark-bg:         #0D1117;
-      --accent-on-dark:  #7AB3D5;
-      --accent:          #3D6B8E;
-      --fg:              #1C1B18;
-      --muted:           #7A8B96;
-      --border:          #DDE3E8;
-      --card:            #FFFFFF;
+      --light:          #F6F5F1;
+      --dark-bg:        #0D1117;
+      --accent-dark:    #7AB3D5;
+      --accent:         #3D6B8E;
+      --fg:             #1C1B18;
+      --muted:          #7A8B96;
+      --border:         #DDE3E8;
+      --card:           #FFFFFF;
 
-      /* per-project left-border accents */
       --c-safari:  #FF9800;
       --c-tracer:  #9C6FE4;
       --c-cranial: #29B36F;
       --c-solar:   #9A93B7;
 
-      /* tag chips */
-      --tag-slp-bg:   #D9EAF5; --tag-slp-fg:   #1e5272;
+      --tag-slp-bg: #D9EAF5;   --tag-slp-fg: #1e5272;
       --tag-neuro-bg: #E5DEF5; --tag-neuro-fg: #4e3380;
-      --tag-art-bg:   #F5EBD9; --tag-art-fg:   #7a5520;
+      --tag-art-bg: #F5EBD9;   --tag-art-fg: #7a5520;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -43,49 +41,31 @@
 
     .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
 
-    /* ── HERO ──────────────────────────────────── */
+    /* ── HERO ───────────────────────────────── */
     .hero {
       position: relative;
       overflow: hidden;
       background-color: var(--dark-bg);
-      /* subtle grid — nods to the technical/scientific side */
       background-image:
         linear-gradient(rgba(122,179,213,0.05) 1px, transparent 1px),
         linear-gradient(90deg, rgba(122,179,213,0.05) 1px, transparent 1px);
       background-size: 44px 44px;
-      padding-bottom: 80px; /* reserved for diagonal divider */
+      padding-bottom: 80px;
     }
 
     .hero-inner { padding-top: 36px; padding-bottom: 60px; }
 
-    .hero-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 64px;
-    }
+    /* name only — no nav links */
+    .hero-header { margin-bottom: 64px; }
 
     .site-name {
       font-family: 'Syne', sans-serif;
       font-weight: 800;
       font-size: 1rem;
       letter-spacing: 0.03em;
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.85);
     }
 
-    .hero-nav { display: flex; gap: 20px; }
-    .hero-nav a {
-      font-size: 0.84rem;
-      color: var(--accent-on-dark);
-      opacity: 0.75;
-      text-decoration: none;
-      transition: opacity 0.15s;
-    }
-    .hero-nav a:hover { opacity: 1; }
-
-    /* eyebrow with a leading rule — replaces generic chip */
     .eyebrow {
       display: flex;
       align-items: center;
@@ -95,23 +75,24 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent-on-dark);
+      color: var(--accent-dark);
       margin-bottom: 20px;
     }
     .eyebrow::before {
       content: '';
       width: 28px;
       height: 1.5px;
-      background: var(--accent-on-dark);
+      background: var(--accent-dark);
       flex-shrink: 0;
     }
 
+    /* Fixed: letter-spacing pulled back so it reads cleanly, not squished */
     .hero h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(2.1rem, 5.5vw, 3.6rem);
       font-weight: 800;
-      line-height: 1.08;
-      letter-spacing: -0.03em;
+      line-height: 1.14;
+      letter-spacing: -0.01em;
       color: #fff;
       max-width: 700px;
     }
@@ -124,10 +105,7 @@
       line-height: 1.78;
     }
 
-    /* ── WAVEFORM (signature element) ──────────── */
-    /* Two sine waves at different frequencies that drift continuously.
-       The SVG is twice the container width; each half is identical so
-       translateX(-50%) creates a seamless loop. */
+    /* ── WAVEFORM ─────────────────────────────── */
     .waveform-wrap {
       position: absolute;
       bottom: 88px;
@@ -137,53 +115,31 @@
       overflow: hidden;
       pointer-events: none;
     }
-
-    .wave-svg {
-      display: block;
-      width: 200%;
-      height: 70px;
-    }
-
-    /* viewBox 0 0 1800 70 — wave pattern repeats perfectly at 900 units */
+    .wave-svg { display: block; width: 200%; height: 70px; }
     .wave-slow {
-      fill: none;
-      stroke: var(--accent-on-dark);
-      stroke-width: 1.5;
-      opacity: 0.2;
+      fill: none; stroke: var(--accent-dark); stroke-width: 1.5; opacity: 0.2;
       animation: wave-drift 14s linear infinite;
     }
     .wave-fast {
-      fill: none;
-      stroke: var(--accent-on-dark);
-      stroke-width: 1;
-      opacity: 0.1;
+      fill: none; stroke: var(--accent-dark); stroke-width: 1; opacity: 0.1;
       animation: wave-drift 8s linear infinite;
     }
-
     @keyframes wave-drift {
       from { transform: translateX(0); }
       to   { transform: translateX(-50%); }
     }
 
-    /* ── DIAGONAL DIVIDER (dark → light) ───────── */
+    /* ── DIAGONAL DIVIDER ─────────────────────── */
     .hero-divider {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 80px;
-      line-height: 0;
-      pointer-events: none;
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 80px; line-height: 0; pointer-events: none;
     }
-    .hero-divider svg {
-      display: block;
-      width: 100%;
-      height: 80px;
-    }
+    .hero-divider svg { display: block; width: 100%; height: 80px; }
 
-    /* ── CONTENT ───────────────────────────────── */
+    /* ── CONTENT ──────────────────────────────── */
     .section-block { margin-top: 60px; }
 
+    /* Shared label style for <p> sections */
     .section-label {
       font-family: 'Syne', sans-serif;
       font-size: 0.68rem;
@@ -196,13 +152,14 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── PROJECT CARDS ─────────────────────────── */
+    /* ── PROJECT CARDS ────────────────────────── */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
+    /* Card: no padding at root level — preview extends edge-to-edge */
     .card {
       display: flex;
       flex-direction: column;
@@ -210,25 +167,68 @@
       border: 1px solid var(--border);
       border-left-width: 3px;
       border-radius: 12px;
-      padding: 22px 22px 20px;
+      overflow: hidden; /* clips preview to rounded corners */
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.09);
     }
 
-    /* each card's left accent echoes its project's palette */
     .card-safari  { border-left-color: var(--c-safari);  }
     .card-tracer  { border-left-color: var(--c-tracer);  }
     .card-cranial { border-left-color: var(--c-cranial); }
     .card-solar   { border-left-color: var(--c-solar);   }
 
-    .card-safari:hover  { background: #FFFAF2; }
-    .card-tracer:hover  { background: #FAF6FF; }
-    .card-cranial:hover { background: #F2FBF6; }
-    .card-solar:hover   { background: #F4F4F8; }
+    /* Live iframe preview — scales the project down to fit the card */
+    .card-preview {
+      position: relative;
+      width: 100%;
+      height: 180px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    /* Fallback background while iframe loads */
+    .card-safari  .card-preview { background: #1a1206; }
+    .card-tracer  .card-preview { background: #0D0A18; }
+    .card-cranial .card-preview { background: #020602; }
+    .card-solar   .card-preview { background: #000008; }
+
+    /* iframe is 250% wide so scale(0.4) brings it to 100% of the card */
+    .card-preview iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 250%;
+      height: 500px;
+      transform: scale(0.4);
+      transform-origin: top left;
+      pointer-events: none;
+      border: none;
+    }
+
+    /* Subtle hover veil — indicates clickability without blocking the preview */
+    .card-preview::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: transparent;
+      transition: background 0.2s;
+      pointer-events: none;
+    }
+    .card:hover .card-preview::after {
+      background: rgba(255,255,255,0.06);
+    }
+
+    /* Card text body */
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      padding: 18px 20px 18px;
+    }
 
     .tag {
       display: inline-flex;
@@ -240,7 +240,7 @@
       text-transform: uppercase;
       padding: 3px 9px;
       border-radius: 20px;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     .tag-slp   { background: var(--tag-slp-bg);   color: var(--tag-slp-fg); }
     .tag-neuro { background: var(--tag-neuro-bg);  color: var(--tag-neuro-fg); }
@@ -249,18 +249,18 @@
     .card h3 {
       font-family: 'Syne', sans-serif;
       font-weight: 700;
-      font-size: 1.05rem;
+      font-size: 1rem;
       color: var(--fg);
       line-height: 1.3;
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
     .card p {
-      font-size: 0.875rem;
+      font-size: 0.85rem;
       color: var(--muted);
       line-height: 1.65;
       flex: 1;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
     }
 
     .card-cta {
@@ -271,12 +271,112 @@
       letter-spacing: 0.02em;
     }
 
-    /* ── BACKGROUND PILLS ──────────────────────── */
+    /* ── DETAILS / ACCORDION ──────────────────── */
+    /* <details open> gives pre-expanded behaviour; user can still collapse */
+    details {
+      margin-top: 56px;
+    }
+
+    details summary {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-bottom: 14px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      transition: color 0.15s;
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details summary:hover { color: var(--accent); }
+    details summary:hover::after { border-color: var(--accent); }
+
+    /* Chevron: rotates between open (up) and closed (down) */
+    details summary::after {
+      content: '';
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid var(--muted);
+      border-bottom: 1.5px solid var(--muted);
+      transform: rotate(-135deg);
+      flex-shrink: 0;
+      transition: transform 0.2s, border-color 0.15s;
+    }
+    details:not([open]) summary::after {
+      transform: rotate(45deg);
+    }
+
+    /* ── SKILLS ───────────────────────────────── */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      font-size: 0.83rem;
+      padding: 8px 16px;
+      border: 1px solid var(--accent);
+      border-radius: 40px;
+      color: var(--accent);
+      background: rgba(61, 107, 142, 0.05);
+    }
+
+    /* ── COURSEWORK ───────────────────────────── */
+    .courses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .courses-group-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.74rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--fg);
+      margin-bottom: 14px;
+    }
+
+    .courses-list { list-style: none; }
+
+    .courses-list li {
+      display: flex;
+      gap: 10px;
+      align-items: baseline;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 7px 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.5;
+    }
+    .courses-list li:last-child { border-bottom: none; }
+
+    .course-code {
+      font-family: 'Syne', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent);
+      flex-shrink: 0;
+      padding-top: 1px;
+    }
+
+    /* ── BACKGROUND PILLS ─────────────────────── */
     .about-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
+
     .bg-tag {
       font-size: 0.83rem;
       padding: 8px 16px;
@@ -288,46 +388,39 @@
 
     .section-last { padding-bottom: 72px; }
 
-    /* ── FOOTER ────────────────────────────────── */
-    footer { border-top: 1px solid var(--border); padding: 22px 0 40px; }
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+    /* ── FOOTER ───────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 22px 0 40px;
       font-size: 0.82rem;
       color: var(--muted);
     }
-    .footer-links { display: flex; gap: 20px; }
-    .footer-links a { color: var(--accent); text-decoration: none; }
-    .footer-links a:hover { text-decoration: underline; }
 
-    /* ── RESPONSIVE ────────────────────────────── */
-    @media (max-width: 600px) {
+    /* ── RESPONSIVE ───────────────────────────── */
+    @media (max-width: 620px) {
       .wrap { padding: 0 20px; }
       .projects-grid { grid-template-columns: 1fr; }
+      .courses-grid  { grid-template-columns: 1fr; }
       .hero-inner { padding-top: 24px; padding-bottom: 44px; }
       .hero-header { margin-bottom: 44px; }
       .section-block { margin-top: 48px; }
+      details { margin-top: 48px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .wave-slow, .wave-fast { animation: none; }
       .card { transition: none; }
+      details summary::after { transition: none; }
     }
   </style>
 </head>
 <body>
 
-<!-- ──────────── HERO ──────────── -->
+<!-- ── HERO ─────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner wrap">
 
     <header class="hero-header">
       <span class="site-name">[Your Name]</span>
-      <nav class="hero-nav">
-        <a href="https://github.com/cva000" target="_blank" rel="noopener">GitHub</a>
-      </nav>
     </header>
 
     <p class="eyebrow">Speech-Language Pathology · Technology · Design</p>
@@ -340,18 +433,13 @@
 
   </div>
 
-  <!-- Flowing waveform: two sine layers at different speeds.
-       SVG is 200% wide with the wave pattern repeating perfectly at 900 units,
-       so translateX(-50%) loops seamlessly. -->
   <div class="waveform-wrap" aria-hidden="true">
     <svg class="wave-svg" viewBox="0 0 1800 70" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-      <!-- Slow wave: period=180, amplitude=25 (y range 10–60) -->
       <path class="wave-slow" d="
         M0,35 C45,10 135,60 180,35 C225,10 315,60 360,35 C405,10 495,60 540,35
         C585,10 675,60 720,35 C765,10 855,60 900,35
         C945,10 1035,60 1080,35 C1125,10 1215,60 1260,35 C1305,10 1395,60 1440,35
         C1485,10 1575,60 1620,35 C1665,10 1755,60 1800,35"/>
-      <!-- Fast wave: period=90, amplitude=15 (y range 20–50) -->
       <path class="wave-fast" d="
         M0,35 C22.5,20 67.5,50 90,35 C112.5,20 157.5,50 180,35
         C202.5,20 247.5,50 270,35 C292.5,20 337.5,50 360,35
@@ -366,7 +454,6 @@
     </svg>
   </div>
 
-  <!-- Diagonal slash: light color cuts up from bottom-left to top-right -->
   <div class="hero-divider" aria-hidden="true">
     <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
       <polygon points="0,80 1440,0 1440,80" fill="#F6F5F1"/>
@@ -374,44 +461,130 @@
   </div>
 </section>
 
-<!-- ──────────── CONTENT ──────────── -->
+<!-- ── CONTENT ───────────────────────────────── -->
 <div class="wrap">
 
+  <!-- PROJECTS -->
   <section class="section-block">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
 
       <a class="card card-safari" href="https://cva000.github.io/sound-safari/" target="_blank" rel="noopener">
-        <span class="tag tag-slp">Pediatric Tool</span>
-        <h3>Sound Safari</h3>
-        <p>An audio game for children building early phoneme awareness — targets /k/ and /t/ minimal pairs with animated characters and adaptive feedback.</p>
-        <span class="card-cta">Open project →</span>
+        <div class="card-preview">
+          <iframe src="https://cva000.github.io/sound-safari/"
+                  tabindex="-1" scrolling="no" loading="lazy"
+                  title="Sound Safari preview" aria-hidden="true"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-slp">Pediatric Tool</span>
+          <h3>Sound Safari</h3>
+          <p>An audio game for children building early phoneme awareness — targets /k/ and /t/ minimal pairs with animated characters and adaptive feedback.</p>
+          <span class="card-cta">Open project →</span>
+        </div>
       </a>
 
       <a class="card card-tracer" href="https://cva000.github.io/Corticospinal-and-Corticobulbar/" target="_blank" rel="noopener">
-        <span class="tag tag-neuro">Neuroscience</span>
-        <h3>Tract Tracer</h3>
-        <p>A case-based quiz on motor tracts of the brainstem and cortex, built as a study tool for CDIS 421 with peer-reviewed citations throughout.</p>
-        <span class="card-cta">Open project →</span>
+        <div class="card-preview">
+          <iframe src="https://cva000.github.io/Corticospinal-and-Corticobulbar/"
+                  tabindex="-1" scrolling="no" loading="lazy"
+                  title="Tract Tracer preview" aria-hidden="true"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-neuro">Neuroscience</span>
+          <h3>Tract Tracer</h3>
+          <p>A case-based quiz on motor tracts of the brainstem and cortex, built as a study tool for CDIS 421 with peer-reviewed citations throughout.</p>
+          <span class="card-cta">Open project →</span>
+        </div>
       </a>
 
       <a class="card card-cranial" href="https://cva000.github.io/CDIS-421-Project-2/" target="_blank" rel="noopener">
-        <span class="tag tag-neuro">Anatomy</span>
-        <h3>Cranial Terminal</h3>
-        <p>An interactive reference for all 12 cranial nerves with a zoomable brainstem diagram, keyboard navigation, and detailed clinical data.</p>
-        <span class="card-cta">Open project →</span>
+        <div class="card-preview">
+          <iframe src="https://cva000.github.io/CDIS-421-Project-2/"
+                  tabindex="-1" scrolling="no" loading="lazy"
+                  title="Cranial Terminal preview" aria-hidden="true"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-neuro">Anatomy</span>
+          <h3>Cranial Terminal</h3>
+          <p>An interactive reference for all 12 cranial nerves with a zoomable brainstem diagram, keyboard navigation, and detailed clinical data.</p>
+          <span class="card-cta">Open project →</span>
+        </div>
       </a>
 
       <a class="card card-solar" href="https://cva000.github.io/solar-system/" target="_blank" rel="noopener">
-        <span class="tag tag-art">Generative Art</span>
-        <h3>Solar System ASCII</h3>
-        <p>A real-time 3D solar system rendered entirely in ASCII — a generative art experiment built with Three.js and custom rasterization.</p>
-        <span class="card-cta">Open project →</span>
+        <div class="card-preview">
+          <iframe src="https://cva000.github.io/solar-system/"
+                  tabindex="-1" scrolling="no" loading="lazy"
+                  title="Solar System preview" aria-hidden="true"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-art">Generative Art</span>
+          <h3>Solar System ASCII</h3>
+          <p>A real-time 3D solar system rendered entirely in ASCII — a generative art experiment built with Three.js and custom rasterization.</p>
+          <span class="card-cta">Open project →</span>
+        </div>
       </a>
 
     </div>
   </section>
 
+  <!-- SKILLS (pre-expanded, collapsible) -->
+  <details open>
+    <summary>Skills</summary>
+    <div class="skills-wrap">
+      <span class="skill-tag">Child development &amp; behavioral guidance</span>
+      <span class="skill-tag">Phonetics &amp; speech science</span>
+      <span class="skill-tag">Language acquisition &amp; development</span>
+      <span class="skill-tag">Clinical observation &amp; documentation</span>
+      <span class="skill-tag">Interactive educational software</span>
+      <span class="skill-tag">Communication facilitation</span>
+      <span class="skill-tag">Active listening &amp; empathy</span>
+      <span class="skill-tag">Conflict resolution &amp; de-escalation</span>
+      <span class="skill-tag">Data analysis &amp; reporting</span>
+      <span class="skill-tag">Team leadership &amp; collaboration</span>
+      <span class="skill-tag">3D modeling &amp; printing</span>
+      <span class="skill-tag">American Sign Language — self-directed study</span>
+      <span class="skill-tag">Creative problem solving</span>
+      <span class="skill-tag">Organization &amp; time management</span>
+    </div>
+  </details>
+
+  <!-- COURSEWORK (pre-expanded, collapsible) -->
+  <details open>
+    <summary>Relevant Coursework</summary>
+    <div class="courses-grid">
+
+      <div class="courses-group">
+        <p class="courses-group-label">ENMU — Communicative Disorders</p>
+        <ul class="courses-list">
+          <li><span class="course-code">CDIS 300</span> Speech-Language-Hearing Anatomy &amp; Physiology</li>
+          <li><span class="course-code">CDIS 310</span> Phonetics</li>
+          <li><span class="course-code">CDIS 311</span> Articulation &amp; Phonological Disorders</li>
+          <li><span class="course-code">CDIS 330</span> Communication Development &amp; Language Science</li>
+          <li><span class="course-code">CDIS 332</span> Language Science and Disorders</li>
+          <li><span class="course-code">CDIS 342</span> Basic Audiology</li>
+          <li><span class="course-code">CDIS 400</span> Speech &amp; Hearing Science</li>
+          <li><span class="course-code">CDIS 421</span> Neuroscience of Communication</li>
+          <li><span class="course-code">CDIS 441</span> Speech-Language Preclinical</li>
+          <li><span class="course-code">CDIS 441L</span> Preclinical Lab — 30 supervised hours with ASHA-certified CCC-SLP</li>
+        </ul>
+      </div>
+
+      <div class="courses-group">
+        <p class="courses-group-label">Salem State — Psychology</p>
+        <ul class="courses-list">
+          <li><span class="course-code">PSY 101</span> General Psychology</li>
+          <li><span class="course-code">PSY 211</span> Intro to Cognitive Psychology</li>
+          <li><span class="course-code">PSY 251</span> Child Growth &amp; Development</li>
+          <li><span class="course-code">PSY 252</span> Adolescent Psychology</li>
+          <li><span class="course-code">PSY 322</span> Adulthood and Old Age</li>
+        </ul>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- BACKGROUND -->
   <section class="section-block section-last">
     <p class="section-label">Background</p>
     <div class="about-tags">
@@ -428,17 +601,9 @@
 
 </div>
 
-<!-- ──────────── FOOTER ──────────── -->
+<!-- ── FOOTER ────────────────────────────────── -->
 <footer>
-  <div class="wrap">
-    <div class="footer-inner">
-      <span>[Your Name]</span>
-      <div class="footer-links">
-        <a href="mailto:[your-email@email.com]">Email</a>
-        <a href="https://github.com/cva000" target="_blank" rel="noopener">GitHub</a>
-      </div>
-    </div>
-  </div>
+  <div class="wrap">[Your Name]</div>
 </footer>
 
 </body>
