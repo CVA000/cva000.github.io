@@ -23,6 +23,7 @@
       --c-tracer:  #9C6FE4;
       --c-cranial: #29B36F;
       --c-solar:   #9A93B7;
+      --c-phonetica: #B5563A;
 
       --tag-slp-bg: #D9EAF5;   --tag-slp-fg: #1e5272;
       --tag-neuro-bg: #E5DEF5; --tag-neuro-fg: #4e3380;
@@ -41,7 +42,6 @@
 
     .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
 
-    /* ── HERO ───────────────────────────────── */
     .hero {
       position: relative;
       overflow: hidden;
@@ -55,7 +55,6 @@
 
     .hero-inner { padding-top: 36px; padding-bottom: 60px; }
 
-    /* name only — no nav links */
     .hero-header { margin-bottom: 64px; }
 
     .site-name {
@@ -86,7 +85,6 @@
       flex-shrink: 0;
     }
 
-    /* Fixed: letter-spacing pulled back so it reads cleanly, not squished */
     .hero h1 {
       font-family: 'Syne', sans-serif;
       font-size: clamp(2.1rem, 5.5vw, 3.6rem);
@@ -105,7 +103,6 @@
       line-height: 1.78;
     }
 
-    /* ── WAVEFORM ─────────────────────────────── */
     .waveform-wrap {
       position: absolute;
       bottom: 88px;
@@ -129,17 +126,14 @@
       to   { transform: translateX(-50%); }
     }
 
-    /* ── DIAGONAL DIVIDER ─────────────────────── */
     .hero-divider {
       position: absolute; bottom: 0; left: 0; right: 0;
       height: 80px; line-height: 0; pointer-events: none;
     }
     .hero-divider svg { display: block; width: 100%; height: 80px; }
 
-    /* ── CONTENT ──────────────────────────────── */
     .section-block { margin-top: 60px; }
 
-    /* Shared label style for <p> sections */
     .section-label {
       font-family: 'Syne', sans-serif;
       font-size: 0.68rem;
@@ -152,14 +146,12 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* ── PROJECT CARDS ────────────────────────── */
     .projects-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
 
-    /* Card: no padding at root level — preview extends edge-to-edge */
     .card {
       display: flex;
       flex-direction: column;
@@ -167,7 +159,7 @@
       border: 1px solid var(--border);
       border-left-width: 3px;
       border-radius: 12px;
-      overflow: hidden; /* clips preview to rounded corners */
+      overflow: hidden;
       text-decoration: none;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
@@ -176,12 +168,12 @@
       box-shadow: 0 10px 28px rgba(0,0,0,0.09);
     }
 
-    .card-safari  { border-left-color: var(--c-safari);  }
-    .card-tracer  { border-left-color: var(--c-tracer);  }
-    .card-cranial { border-left-color: var(--c-cranial); }
-    .card-solar   { border-left-color: var(--c-solar);   }
+    .card-safari    { border-left-color: var(--c-safari); }
+    .card-tracer    { border-left-color: var(--c-tracer); }
+    .card-cranial   { border-left-color: var(--c-cranial); }
+    .card-solar     { border-left-color: var(--c-solar); }
+    .card-phonetica { border-left-color: var(--c-phonetica); }
 
-    /* Live iframe preview — scales the project down to fit the card */
     .card-preview {
       position: relative;
       width: 100%;
@@ -190,13 +182,12 @@
       flex-shrink: 0;
     }
 
-    /* Fallback background while iframe loads */
-    .card-safari  .card-preview { background: #1a1206; }
-    .card-tracer  .card-preview { background: #0D0A18; }
-    .card-cranial .card-preview { background: #020602; }
-    .card-solar   .card-preview { background: #000008; }
+    .card-safari    .card-preview { background: #1a1206; }
+    .card-tracer    .card-preview { background: #0D0A18; }
+    .card-cranial   .card-preview { background: #020602; }
+    .card-solar     .card-preview { background: #000008; }
+    .card-phonetica .card-preview { background: #f1e7d7; }
 
-    /* iframe is 250% wide so scale(0.4) brings it to 100% of the card */
     .card-preview iframe {
       position: absolute;
       top: 0;
@@ -209,7 +200,6 @@
       border: none;
     }
 
-    /* Subtle hover veil — indicates clickability without blocking the preview */
     .card-preview::after {
       content: '';
       position: absolute;
@@ -222,7 +212,6 @@
       background: rgba(255,255,255,0.06);
     }
 
-    /* Card text body */
     .card-body {
       display: flex;
       flex-direction: column;
@@ -271,8 +260,6 @@
       letter-spacing: 0.02em;
     }
 
-    /* ── DETAILS / ACCORDION ──────────────────── */
-    /* <details open> gives pre-expanded behaviour; user can still collapse */
     details {
       margin-top: 56px;
     }
@@ -299,7 +286,6 @@
     details summary:hover { color: var(--accent); }
     details summary:hover::after { border-color: var(--accent); }
 
-    /* Chevron: rotates between open (up) and closed (down) */
     details summary::after {
       content: '';
       display: inline-block;
@@ -315,7 +301,6 @@
       transform: rotate(45deg);
     }
 
-    /* ── SKILLS ───────────────────────────────── */
     .skills-wrap {
       display: flex;
       flex-wrap: wrap;
@@ -331,7 +316,6 @@
       background: rgba(61, 107, 142, 0.05);
     }
 
-    /* ── COURSEWORK ───────────────────────────── */
     .courses-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -370,7 +354,6 @@
       padding-top: 1px;
     }
 
-    /* ── BACKGROUND PILLS ─────────────────────── */
     .about-tags {
       display: flex;
       flex-wrap: wrap;
@@ -388,7 +371,6 @@
 
     .section-last { padding-bottom: 72px; }
 
-    /* ── FOOTER ───────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
       padding: 22px 0 40px;
@@ -396,7 +378,6 @@
       color: var(--muted);
     }
 
-    /* ── RESPONSIVE ───────────────────────────── */
     @media (max-width: 620px) {
       .wrap { padding: 0 20px; }
       .projects-grid { grid-template-columns: 1fr; }
@@ -415,7 +396,6 @@
 </head>
 <body>
 
-<!-- ── HERO ─────────────────────────────────── -->
 <section class="hero">
   <div class="hero-inner wrap">
 
@@ -441,8 +421,7 @@
         C945,10 1035,60 1080,35 C1125,10 1215,60 1260,35 C1305,10 1395,60 1440,35
         C1485,10 1575,60 1620,35 C1665,10 1755,60 1800,35"/>
       <path class="wave-fast" d="
-        M0,35 C22.5,20 67.5,50 90,35 C112.5,20 157.5,50 180,35
-        C202.5,20 247.5,50 270,35 C292.5,20 337.5,50 360,35
+        M0,35 C22.5,20 67.5,50 90,35 C112.5,20 247.5,50 270,35 C292.5,20 337.5,50 360,35
         C382.5,20 427.5,50 450,35 C472.5,20 517.5,50 540,35
         C562.5,20 607.5,50 630,35 C652.5,20 697.5,50 720,35
         C742.5,20 787.5,50 810,35 C832.5,20 877.5,50 900,35
@@ -461,13 +440,25 @@
   </div>
 </section>
 
-<!-- ── CONTENT ───────────────────────────────── -->
 <div class="wrap">
 
-  <!-- PROJECTS -->
   <section class="section-block">
     <p class="section-label">Projects</p>
     <div class="projects-grid">
+
+      <a class="card card-phonetica" href="https://cva000.github.io/phonetica/" target="_blank" rel="noopener">
+        <div class="card-preview">
+          <iframe src="https://cva000.github.io/phonetica/"
+                  tabindex="-1" scrolling="no" loading="lazy"
+                  title="Phonetica preview" aria-hidden="true"></iframe>
+        </div>
+        <div class="card-body">
+          <span class="tag tag-slp">IPA Study Tool</span>
+          <h3>Phonetica</h3>
+          <p>A field guide to the phoneme inventory of General American English, with an interactive 3D vocal tract, a navigable vowel space, and clinical notes on phonological variation.</p>
+          <span class="card-cta">Open project →</span>
+        </div>
+      </a>
 
       <a class="card card-safari" href="https://cva000.github.io/sound-safari/" target="_blank" rel="noopener">
         <div class="card-preview">
@@ -528,7 +519,6 @@
     </div>
   </section>
 
-  <!-- SKILLS (pre-expanded, collapsible) -->
   <details open>
     <summary>Skills</summary>
     <div class="skills-wrap">
@@ -549,7 +539,6 @@
     </div>
   </details>
 
-  <!-- COURSEWORK (pre-expanded, collapsible) -->
   <details open>
     <summary>Relevant Coursework</summary>
     <div class="courses-grid">
@@ -584,7 +573,6 @@
     </div>
   </details>
 
-  <!-- BACKGROUND -->
   <section class="section-block section-last">
     <p class="section-label">Background</p>
     <div class="about-tags">
@@ -601,7 +589,6 @@
 
 </div>
 
-<!-- ── FOOTER ────────────────────────────────── -->
 <footer>
   <div class="wrap">Chloe Villa-Abrille</div>
 </footer>
